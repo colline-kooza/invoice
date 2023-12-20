@@ -12,7 +12,7 @@ export default function Hero() {
             Empowering you to make better financial decisions, Create , manage , and track ,Recurring Invoices download as PDF , Email and print Invoices 
             </p>
             <div class="mt-4 ">
-              <Link href="" class="inline-flex flex gap-2 font-semibold items-center px-5 py-3 text-sm text-white bg-blue-500 rounded-lg md:px-8 hover:bg-blue-600">Create Invoice <FaArrowDown/></Link>
+              <Link href="/invoice/new" class="inline-flex flex gap-2 font-semibold items-center px-5 py-3 text-sm text-white bg-blue-500 rounded-lg md:px-8 hover:bg-blue-600">Create Invoice <FaArrowDown/></Link>
             </div>
           </div>
           <div class="pb-10 overflow-hidden md:p-10 lg:p-0 sm:pb-0">

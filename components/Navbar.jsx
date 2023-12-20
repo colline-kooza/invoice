@@ -1,47 +1,77 @@
-import Link from 'next/link'
-import React from 'react'
+"use client"
 
-export default function Navbar() {
-  return (
-    <nav class="relative flex items-center justify-between sm:h-10 md:justify-center  py-4 lg:px-8 px-4 mt-2 mx-4">
-    <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
-        <div class="flex items-center justify-between w-full md:w-auto">
-            <Link href="" aria-label="Home">
-                <img src="https://www.svgrepo.com/show/491978/gas-costs.svg" height="40" width="40" />
-            </Link>
-            <div class="-mr-2 flex items-center md:hidden">
-                <button type="button" id="main-menu" aria-label="Main menu" aria-haspopup="true" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" class="h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
+import { useState } from 'react'
+
+export default () => {
+
+    const [state, setState] = useState(false)
+
+    const navigation = [
+        { title: "Free Tools", path: "javascript:void(0)" },
+        { title: "Features", path: "javascript:void(0)" },
+        { title: "Customers", path: "javascript:void(0)" },
+        { title: "Pricing", path: "javascript:void(0)" }
+    ]
+
+    return (
+        <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
+            <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
+                <div className="flex items-center justify-between py-3 md:py-5 md:block">
+                    <a href="javascript:void(0)">
+                        <img
+                            src="https://www.floatui.com/logo.svg"
+                            width={120}
+                            height={50}
+                            alt="Float UI logo"
+                        />
+                    </a>
+                    <div className="md:hidden">
+                        <button className="text-gray-500 hover:text-gray-800"
+                            onClick={() => setState(!state)}
+                        >
+                            {
+                                state ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    </svg>
+                                ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                    </svg>
+                                )
+                            }
+                        </button>
+                    </div>
+                </div>
+                <div className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${state ? 'block' : 'hidden'}`}>
+                    <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+                        {
+                            navigation.map((item, idx) => {
+                                return (
+                                    <li key={idx} className="text-gray-700 hover:text-indigo-600">
+                                        <a href={item.path} className="block">
+                                            {item.title}
+                                        </a>
+                                    </li>
+                                )
+                            })
+                        }
+                        <span className='hidden w-px h-6 bg-gray-300 md:block'></span>
+                        <div className='space-y-3 items-center gap-x-6 md:flex md:space-y-0'>
+                            <li>
+                                <a href="javascript:void(0)" className="block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none">
+                                    Log in
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" className="block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
+                                    Sign in
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="hidden md:flex md:space-x-10">
-        <Link href=""
-            class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Features</Link>
-        <Link href=""
-            class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Pricing</Link>
-        <Link href=""
-            class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Blog</Link>
-        <Link href="" target="_blank"
-            class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Docs</Link>
-        <Link href="" target="_blank"
-            class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Docs</Link>
-        <Link href="" target="_blank"
-            class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Docs</Link>
-    </div>
-    <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
-        <span class="inline-flex">
-            <Link href="" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium text-blue-600 hover:text-blue-500 focus:outline-none transition duration-150 ease-in-out">
-              Login
-            </Link>
-        </span>
-        <span class="inline-flex rounded-md shadow ml-2">
-            <Link href="" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out">
-            Signup
-            </Link>
-        </span>
-    </div>
-</nav>
-  )
+        </nav>
+    )
 }

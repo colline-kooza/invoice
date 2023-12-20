@@ -1,92 +1,86 @@
-import React from 'react'
+export default () => {
 
-export default function Features() {
-  return (
-    <section class="py-12 bg-slate-950 text-gray-100 sm:py-12 lg:py-16">
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="max-w-xl mx-auto text-center xl:max-w-2xl">
-            <h2 class="text-2xl font-bold leading-tight text-gray-50 sm:text-4xl xl:text-5xl mb-6">
-                We are just getting started!</h2>
-            <p class="mb-4 text-sm">
-                We are creating a tool that helps you grow and manage your business sales made with ease and free</p>
-
-        </div>
-        <div class="grid lg:max-w-[full] grid-cols-1 mx-auto mt-10 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-9 sm:text-left">
-           <div class="relative overflow-hidden bg-white shadow-md rounded-xl">
-        <div class="p-4 flex flex-col gap-2">
-                    <svg class="w-6 h-6 mx-auto text-gray-400 sm:mx-0" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <rect x="13" y="14" width="2" height="2" rx="1" fill="#111827"></rect>
-                        <rect x="7" y="11" width="2" height="6" rx="1" fill="#111827"></rect>
-                        <rect x="11" y="13" width="2" height="6" rx="1" transform="rotate(90 11 13)" fill="#111827">
-                        </rect>
-                        <rect x="16" y="12" width="2" height="2" rx="1" fill="#111827"></rect>
-                        <path
-                            d="M14 8V8C14 7.58326 14 7.37488 13.9655 7.19144C13.8455 6.5546 13.4245 6.01534 12.8358 5.74455C12.6662 5.66654 12.464 5.616 12.0597 5.51493L12 5.5C11.5388 5.3847 11.3082 5.32706 11.1171 5.233C10.5686 4.96315 10.1737 4.45731 10.0449 3.85979C10 3.65151 10 3.41382 10 2.93845V2"
-                            stroke="#111827" stroke-width="2" stroke-linecap="round"></path>
-                        <path
-                            d="M3 14C3 11.4412 3 10.1618 3.61994 9.28042C3.77954 9.05351 3.96572 8.85041 4.17372 8.6763C4.98164 8 6.15442 8 8.5 8H15.5C17.8456 8 19.0184 8 19.8263 8.6763C20.0343 8.85041 20.2205 9.05351 20.3801 9.28042C21 10.1618 21 11.4412 21 14C21 16.5588 21 17.8382 20.3801 18.7196C20.2205 18.9465 20.0343 19.1496 19.8263 19.3237C19.0184 20 17.8456 20 15.5 20H8.5C6.15442 20 4.98164 20 4.17372 19.3237C3.96572 19.1496 3.77954 18.9465 3.61994 18.7196C3 17.8382 3 16.5588 3 14Z"
-                            stroke="#111827" stroke-width="2"></path>
-                    </svg>
-                        <h3 class="text-lg font-bold text-gray-900 sm:mt-2">
-                            Easy Access AnyWhere
-                            </h3>
-                        <p class=" text-gray-600 text-sm">Collaborate in realtime with other editors in a
-                            project. See what othe editors are doing and edit even a simple text together
-                        </p>
-        </div>
+    const features = [
+        {
+            icon:
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                </svg>,
+            title: "Fast Refresh",
+            desc: "Experience fast refresh times for real-time updates and quick access to your invoicing data. Stay up-to-date with changes instantly."
+        },
+        {
+            icon:
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                </svg>,
+            title: "Analytics",
+            desc: "Gain valuable insights into your invoicing trends and performance with our built-in analytics tools. Track your financial data to make informed business decisions."
+        },
+        {
+            icon:
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>,
+            title: "Datacenter Security",
+            desc: "Ensure the security of your invoicing data with our robust datacenter security measures. Your sensitive information is protected with the highest standards of security."
+        },
+        {
+            icon:
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
+                </svg>,
+            title: "Build on Your Terms",
+            desc: "Customize and build your invoicing processes to match your business needs. Our flexible platform allows you to tailor your experience to fit your unique requirements."
+        },
+        {
+            icon:
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>,
+            title: "Safe to Use",
+            desc: "Rest easy knowing that our platform is designed with your security in mind. Your data is kept safe, and you can use our invoicing app with confidence and peace of mind."
+        },
+        {
+            icon:
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                </svg>,
+            title: "Flexible",
+            desc: "Enjoy the flexibility of our invoicing app. Tailor the features and settings to suit your unique requirements, providing you with a personalized and efficient invoicing experience."
+        },
+    ];
+    return (
+        <section className="py-14">
+            <div className="max-w-screen-xl mx-auto px-4 text-center text-gray-600 md:px-8">
+                <div className="max-w-2xl mx-auto">
+                    <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+                        The fastest way to grow your business
+                    </h3>
+                    <p className="mt-3">
+                       Use our invoicer to to grow your business manage your sales through our affordable , user-friendly and reliable features.
+                    </p>
+                </div>
+                <div className="mt-12">
+                    <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
+                        {
+                            features.map((item, idx) => (
+                                <li key={idx} className="space-y-3">
+                                    <div className="w-12 h-12 mx-auto bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center">
+                                        {item.icon}
+                                    </div>
+                                    <h4 className="text-lg text-gray-800 font-semibold">
+                                        {item.title}
+                                    </h4>
+                                    <p className="text-sm">
+                                        {item.desc}
+                                    </p>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
-           <div class="relative overflow-hidden bg-white shadow-md rounded-xl">
-        <div class="p-4 flex flex-col gap-2">
-                    <svg class="w-6 h-6 mx-auto text-gray-400 sm:mx-0" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <rect x="13" y="14" width="2" height="2" rx="1" fill="#111827"></rect>
-                        <rect x="7" y="11" width="2" height="6" rx="1" fill="#111827"></rect>
-                        <rect x="11" y="13" width="2" height="6" rx="1" transform="rotate(90 11 13)" fill="#111827">
-                        </rect>
-                        <rect x="16" y="12" width="2" height="2" rx="1" fill="#111827"></rect>
-                        <path
-                            d="M14 8V8C14 7.58326 14 7.37488 13.9655 7.19144C13.8455 6.5546 13.4245 6.01534 12.8358 5.74455C12.6662 5.66654 12.464 5.616 12.0597 5.51493L12 5.5C11.5388 5.3847 11.3082 5.32706 11.1171 5.233C10.5686 4.96315 10.1737 4.45731 10.0449 3.85979C10 3.65151 10 3.41382 10 2.93845V2"
-                            stroke="#111827" stroke-width="2" stroke-linecap="round"></path>
-                        <path
-                            d="M3 14C3 11.4412 3 10.1618 3.61994 9.28042C3.77954 9.05351 3.96572 8.85041 4.17372 8.6763C4.98164 8 6.15442 8 8.5 8H15.5C17.8456 8 19.0184 8 19.8263 8.6763C20.0343 8.85041 20.2205 9.05351 20.3801 9.28042C21 10.1618 21 11.4412 21 14C21 16.5588 21 17.8382 20.3801 18.7196C20.2205 18.9465 20.0343 19.1496 19.8263 19.3237C19.0184 20 17.8456 20 15.5 20H8.5C6.15442 20 4.98164 20 4.17372 19.3237C3.96572 19.1496 3.77954 18.9465 3.61994 18.7196C3 17.8382 3 16.5588 3 14Z"
-                            stroke="#111827" stroke-width="2"></path>
-                    </svg>
-                        <h3 class="text-lg font-bold text-gray-900 sm:mt-2">
-                            Brand Your Invoice
-                            </h3>
-                        <p class=" text-gray-600 text-sm">Collaborate in realtime with other editors in a
-                            project. See what othe editors are doing and edit even a simple text together
-                        </p>
-        </div>
-            </div>
-           <div class="relative overflow-hidden bg-white shadow-md rounded-xl">
-        <div class="p-4 flex flex-col gap-2">
-                    <svg class="w-6 h-6 mx-auto text-gray-400 sm:mx-0" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <rect x="13" y="14" width="2" height="2" rx="1" fill="#111827"></rect>
-                        <rect x="7" y="11" width="2" height="6" rx="1" fill="#111827"></rect>
-                        <rect x="11" y="13" width="2" height="6" rx="1" transform="rotate(90 11 13)" fill="#111827">
-                        </rect>
-                        <rect x="16" y="12" width="2" height="2" rx="1" fill="#111827"></rect>
-                        <path
-                            d="M14 8V8C14 7.58326 14 7.37488 13.9655 7.19144C13.8455 6.5546 13.4245 6.01534 12.8358 5.74455C12.6662 5.66654 12.464 5.616 12.0597 5.51493L12 5.5C11.5388 5.3847 11.3082 5.32706 11.1171 5.233C10.5686 4.96315 10.1737 4.45731 10.0449 3.85979C10 3.65151 10 3.41382 10 2.93845V2"
-                            stroke="#111827" stroke-width="2" stroke-linecap="round"></path>
-                        <path
-                            d="M3 14C3 11.4412 3 10.1618 3.61994 9.28042C3.77954 9.05351 3.96572 8.85041 4.17372 8.6763C4.98164 8 6.15442 8 8.5 8H15.5C17.8456 8 19.0184 8 19.8263 8.6763C20.0343 8.85041 20.2205 9.05351 20.3801 9.28042C21 10.1618 21 11.4412 21 14C21 16.5588 21 17.8382 20.3801 18.7196C20.2205 18.9465 20.0343 19.1496 19.8263 19.3237C19.0184 20 17.8456 20 15.5 20H8.5C6.15442 20 4.98164 20 4.17372 19.3237C3.96572 19.1496 3.77954 18.9465 3.61994 18.7196C3 17.8382 3 16.5588 3 14Z"
-                            stroke="#111827" stroke-width="2"></path>
-                    </svg>
-                        <h3 class="text-lg font-bold text-gray-900 sm:mt-2">
-                            Easy Tax Invoice
-                            </h3>
-                        <p class=" text-gray-600 text-sm">Collaborate in realtime with other editors in a
-                            project. See what othe editors are doing and edit even a simple text together
-                        </p>
-        </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-  )
+        </section>
+    )
 }
