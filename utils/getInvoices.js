@@ -1,5 +1,6 @@
 export default async function getInvoices() {
-    const response = await fetch("http://localhost:3000/api/invoicer", {
+  const baseUrl=process.env.NEXT_PUBLIC_LOCALHOST;
+    const response = await fetch(`${baseUrl}/api/invoicer`, {
       cache: "no-store",
     });
     const invoices = await response.json();
