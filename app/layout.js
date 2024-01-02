@@ -2,6 +2,12 @@ import { Inter } from 'next/font/google'
 import '../styles/globals.scss'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { ourFileRouter } from './api/uploadthing/core';
+import { Toaster } from 'react-hot-toast';
+import AuthProvider from '@/context/AuthProvider';
+ 
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,11 +18,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <AuthProvider>
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
+      <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)}
+        />
         <Navbar/>
-        {children}</body>
+        {children}
         <Footer/>
+ </AuthProvider>
+        </body>
+     
+       
     </html>
   )
 }

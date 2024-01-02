@@ -4,9 +4,12 @@ import Hero from '@/components/Hero'
 import Invoice from '@/components/Invoice'
 import Pricing from '@/components/Pricing'
 import Steps from '@/components/Steps'
+import { getServerSession } from 'next-auth'
 import React from 'react'
 
-export default function Page() {
+export default async function Page() {
+  // const session= await getServerSession({authOptions})
+  // console.log(session.user)
   return (
     <div >
       <Hero/>

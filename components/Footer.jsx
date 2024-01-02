@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-<footer class="bg-slate-950 mt-4">
+<footer class="bg-slate-950 mt-4 min-h-[50vh]">
   <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
     <div class="flex justify-center text-teal-600 text-2xl font-bold">
       INVOICE
