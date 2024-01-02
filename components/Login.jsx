@@ -209,14 +209,15 @@ export default function Login() {
                 )}
               </div>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                I don't have an account?
-                <Link
-                  className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                  href="/register"
-                >
-                  Register in here
-                </Link>
-              </p>
+  I don&apos;t have an account?
+  <Link
+    className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+    href="/register"
+  >
+    Register in here
+  </Link>
+</p>
+
             </form>
           </div>
         </div>
