@@ -1,5 +1,7 @@
-export default () => {
 
+import React from 'react'
+
+export default function Features() {
     const features = [
         {
             icon:
@@ -50,37 +52,37 @@ export default () => {
             desc: "Enjoy the flexibility of our invoicing app. Tailor the features and settings to suit your unique requirements, providing you with a personalized and efficient invoicing experience."
         },
     ];
-    return (
-        <section className="py-14">
-            <div className="max-w-screen-xl mx-auto px-4 text-center text-gray-600 md:px-8">
-                <div className="max-w-2xl mx-auto">
-                    <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-                        The fastest way to grow your business
-                    </h3>
-                    <p className="mt-3">
-                       Use our invoicer to to grow your business manage your sales through our affordable , user-friendly and reliable features.
-                    </p>
-                </div>
-                <div className="mt-12">
-                    <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
-                        {
-                            features.map((item, idx) => (
-                                <li key={idx} className="space-y-3">
-                                    <div className="w-12 h-12 mx-auto bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center">
-                                        {item.icon}
-                                    </div>
-                                    <h4 className="text-lg text-gray-800 font-semibold">
-                                        {item.title}
-                                    </h4>
-                                    <p className="text-sm">
-                                        {item.desc}
-                                    </p>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
-            </div>
-        </section>
-    )
+  return (
+    <section className="py-14">
+    <div className="max-w-screen-xl mx-auto px-4 text-center text-gray-600 md:px-8">
+        <div className="max-w-2xl mx-auto">
+            <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+                The fastest way to grow your business
+            </h3>
+            <p className="mt-3">
+               Use our invoicer to to grow your business manage your sales through our affordable , user-friendly and reliable features.
+            </p>
+        </div>
+        <div className="mt-12">
+            <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
+                {
+                    features.map((item, idx) => (
+                        <li key={idx} className="space-y-3">
+                            <div className="w-12 h-12 mx-auto bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center">
+                                {item.icon}
+                            </div>
+                            <h4 className="text-lg text-gray-800 font-semibold">
+                                {item.title}
+                            </h4>
+                            <p className="text-sm">
+                                {item.desc}
+                            </p>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</section>
+  )
 }

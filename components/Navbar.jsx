@@ -4,26 +4,26 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
-export default () => {
- const [state, setState] = useState(false)
- const [popupVisible, setPopupVisible] = useState(false);
- const handleInitialClick = () => {
-   setPopupVisible(!popupVisible);
- };
-    const { data: session, status, update } = useSession()
-    const pathName=usePathname()
-    if (pathName.startsWith("/invoice/") && pathName !== "/invoice/new") {
-        return null;
-      }
-    const navigation = [
-        { title: "Free Tools", path: "/" },
-        { title: "Features", path: "/" },
-        { title: "Customers", path: "/" },
-        { title: "Pricing", path: "/" }
-    ]
-
-    return (
-        <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
+export default function Navbar() {
+    const [state, setState] = useState(false)
+    const [popupVisible, setPopupVisible] = useState(false);
+    const handleInitialClick = () => {
+      setPopupVisible(!popupVisible);
+    };
+       const { data: session, status} = useSession()
+       const pathName=usePathname()
+       if (pathName.startsWith("/invoice/") && pathName !== "/invoice/new") {
+           return null;
+         }
+       const navigation = [
+           { title: "Free Tools", path: "/" },
+           { title: "Features", path: "/" },
+           { title: "Customers", path: "/" },
+           { title: "Pricing", path: "/" }
+       ]
+   
+  return (
+    <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
             <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
                 <div className="flex items-center justify-between py-3 md:py-5 md:block">
                     <Link  href="/">
@@ -133,6 +133,5 @@ export default () => {
         </div>
              )}
         </nav>
-    )
+  )
 }
-

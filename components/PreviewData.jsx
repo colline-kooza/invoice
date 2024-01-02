@@ -87,9 +87,9 @@ export default function Previewdata({data}) {
         </thead>
         <tbody className=''>
          {
-            data?.tableData.map((row , i)=>{
+            data?.tableData.map((row )=>{
                 return(
-                    <tr key={i} className='text-gray-900'>
+                    <tr key={row.id} className='text-gray-900'>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {row.itemDescription}
                     </th>
