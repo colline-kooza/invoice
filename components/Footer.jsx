@@ -1,36 +1,48 @@
-import React from 'react'
-
+"use client"
+import Link from 'next/link'
+import React, { useEffect } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+// 0726802779
 export default function Footer() {
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
-<footer class="bg-slate-950 mt-4 min-h-[50vh]">
+<footer data-aos="fade-up" class="bg-white mt-4 min-h-[50vh]">
   <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
-    <div class="flex justify-center text-teal-600 text-2xl font-bold">
-      INVOICE
-    </div>
-    <p class="mx-auto mt-1 max-w-md text-center leading-relaxed text-gray-400">
+  <Link className='flex items-center justify-center mb-3'  href="/">
+    <img
+    src="/invoicerLogo.png"
+     width={180}
+    height={150}
+    alt="make invoice"
+    />
+     </Link>
+    <p class="mx-auto mt-1 max-w-md text-center leading-relaxed text-gray-800">
     User-friendly platform to manage your invoices effortlessly, Thank you for choosing invoicer for your invoicing needs!
     </p>
     <ul class="mt-8 flex flex-wrap justify-center gap-3 md:gap-8 lg:gap-8">
       <li>
-        <a class="text-gray-100 transition hover:text-gray-700/75" href="/"> About </a>
+        <a class="text-gray-500 transition hover:text-red-700/75" href="/"> About </a>
       </li>
       <li>
-        <a class="text-gray-300 transition hover:text-gray-700/75" href="/"> Invoice </a>
+        <a class="text-gray-500 transition hover:text-red-700/75" href="/"> Invoice </a>
       </li>
       <li>
-        <a class="text-gray-300 transition hover:text-gray-700/75" href="/"> Contact </a>
-      </li>
-
-      <li>
-        <a class="text-gray-300 transition hover:text-gray-700/75" href="/"> Services </a>
+        <a class="text-gray-500 transition hover:text-red-700/75" href="/"> Contact </a>
       </li>
 
       <li>
-        <a class="text-gray-300 transition hover:text-gray-700/75" href="/">Management </a>
+        <a class="text-gray-500 transition hover:text-red-700/75" href="/"> Services </a>
       </li>
 
       <li>
-        <a class="text-gray-300 transition hover:text-gray-700/75" href="/"> Blog </a>
+        <a class="text-gray-500 transition hover:text-red-700/75" href="/">Management </a>
+      </li>
+
+      <li>
+        <a class="text-gray-500 transition hover:text-red-700/75" href="/"> Blog </a>
       </li>
     </ul>
     <ul class="mt-10 flex justify-center gap-6 md:gap-8">
@@ -39,7 +51,7 @@ export default function Footer() {
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-300 transition hover:text-gray-700/75"
+          class="text-gray-500 transition hover:text-red-700/75"
         >
           <span class="sr-only">Facebook</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -57,7 +69,7 @@ export default function Footer() {
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-300 transition hover:text-gray-700/75"
+          class="text-gray-500 transition hover:text-red-700/75"
         >
           <span class="sr-only">Instagram</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -75,7 +87,7 @@ export default function Footer() {
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-300 transition hover:text-gray-700/75"
+          class="text-gray-500 transition hover:text-red-700/75"
         >
           <span class="sr-only">Twitter</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -91,7 +103,7 @@ export default function Footer() {
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-300 transition hover:text-gray-700/75"
+          class="text-gray-500 transition hover:text-red-700/75"
         >
           <span class="sr-only">GitHub</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -109,7 +121,7 @@ export default function Footer() {
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-300 transition hover:text-gray-700/75"
+          class="text-gray-500 transition hover:text-red-700/75"
         >
           <span class="sr-only">Dribbble</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

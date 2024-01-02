@@ -1,13 +1,19 @@
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
 import { BsBank } from "react-icons/bs";
 import {  CgSelectO } from "react-icons/cg";
 import { TbDetails } from "react-icons/tb";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 export default function Steps() {
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
   return (
-    <div className='bg-gray-100 lg:mx-[4rem] mt-8 flex flex-col gap-12 p-12'>
+    <div data-aos="fade-down" className='bg-gray-100 lg:mx-[4rem] mt-8 flex flex-col gap-12 p-12'>
     <h2 className='text-slate-900 flex flex-col items-center md:text-2xl text-2xl text-center lg:text-3xl font-bold '>Create Your invoice in Less than 2 Minutes</h2>
 <div>
   <div>
@@ -17,7 +23,7 @@ export default function Steps() {
       <li class="flex items-center justify-center gap-2 p-4">
       <TbDetails size={30} className='shirke-0'/>
         <p class="leading-none">
-          <strong class="block font-medium">Transition Details </strong>
+          <strong class="block font-medium">Business Details </strong>
           <small class="mt-1"> Invoice Details.</small>
         </p>
       </li>
@@ -37,8 +43,8 @@ export default function Steps() {
 
 
         <p class="leading-none">
-          <strong class="block font-medium"> Bank Details </strong>
-          <small class="mt-1"> Bank Details(Optional)? </small>
+          <strong class="block font-medium"> Client Details </strong>
+          <small class="mt-1"> Client Details(Optional)? </small>
         </p>
       </li>
 

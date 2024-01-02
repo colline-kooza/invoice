@@ -194,7 +194,7 @@ Print
 {/* company details */}
 <div className='w-[40%]'>
 <div class="mb-1">
-<input onChange={handInputChange} type="text" id="text" class="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-white     dark:placeholder-gray-800 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" value={formData.companyName} placeholder="Your company" name='companyName' required/>
+<input onChange={handInputChange} type="text" id="text" class="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-white dark:placeholder-gray-800 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" value={formData.companyName} placeholder="Your company" name='companyName' required/>
 </div>  
 <div class="mb-1">
 <input onChange={handInputChange} type="text" id="text" class="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white  dark:placeholder-gray-800 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" value={formData.AuthorName} name='AuthorName' placeholder="Your Name" required/>

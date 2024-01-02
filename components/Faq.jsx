@@ -1,7 +1,12 @@
 "use client"
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function FaqCard({ faq }) {
+  useEffect(() => {
+    AOS.init();
+  }, [])
   const answerElRef = useRef();
   const [state, setState] = useState(false);
   const [answerH, setAnswerH] = useState('0px');
@@ -13,6 +18,7 @@ function FaqCard({ faq }) {
 
   return (
     <div
+    data-aos="fade-right"
       className="space-y-3 mt-5 overflow-hidden border-b"
       key={faq.q}
       onClick={handleOpenAnswer}

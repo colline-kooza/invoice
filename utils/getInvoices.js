@@ -6,4 +6,3 @@ export default async function getInvoices() {
     const invoices = await response.json();
     return invoices;
   }
-  

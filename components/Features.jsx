@@ -1,7 +1,14 @@
 
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 export default function Features() {
+    useEffect(() => {
+        AOS.init();
+      }, [])
     const features = [
         {
             icon:
@@ -53,7 +60,7 @@ export default function Features() {
         },
     ];
   return (
-    <section className="py-14">
+    <section data-aos="fade-right" className="py-14 mt-5">
     <div className="max-w-screen-xl mx-auto px-4 text-center text-gray-600 md:px-8">
         <div className="max-w-2xl mx-auto">
             <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">

@@ -28,10 +28,10 @@ export default function Navbar() {
                 <div className="flex items-center justify-between py-3 md:py-5 md:block">
                     <Link  href="/">
                         <img
-                            src="https://www.floatui.com/logo.svg"
-                            width={120}
-                            height={50}
-                            alt="Float UI logo"
+                            src="/invoicerLogo.png"
+                            width={180}
+                            height={150}
+                            alt="make invoice"
                         />
                     </Link>
                     <div className="md:hidden flex items-center gap-2">

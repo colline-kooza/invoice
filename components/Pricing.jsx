@@ -1,13 +1,19 @@
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Pricing() {
+    useEffect(() => {
+        AOS.init();
+      }, [])
   return (
-    <section class="bg-white dark:bg-slate-950">
+    <section data-aos="fade-left" class="bg-white">
     <div class="w-full px-6 py-8  lg:py-24 lg:px-13">
         <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-10">
-            <h2 class="mb-3 lg:text-4xl text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Designed for business
+            <h2 class="mb-3 lg:text-4xl text-3xl font-extrabold tracking-tight text-[#020617]">Designed for business
             </h2>
-            <p class="mb-5 font-light text-gray-500 sm:text-lg dark:text-gray-400">Here we focus on markets
+            <p class="mb-5 font-light text-gray-900 sm:text-lg ">Here we focus on markets
             where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
         </div>
         <div class="lg:grid lg:grid-cols-3  sm:gap-6 lg:gap-3 lg:mx-[3rem]">
@@ -22,7 +28,6 @@ export default function Pricing() {
 
                 <ul role="list" class="mb-8 space-y-4 text-left">
                     <li class="flex items-center space-x-3">
-
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor"
                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -72,7 +77,7 @@ export default function Pricing() {
                         <span className='text-sm'>Free updates: <span class="font-semibold">6 months</span></span>
                     </li>
                 </ul>
-                <a href="#"
+                <a href="/invoice/new"
                     class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900">Get
                     started</a>
             </div>
@@ -137,7 +142,7 @@ export default function Pricing() {
                         <span className='text-sm'>Free updates: <span class="font-semibold">1 months</span></span>
                     </li>
                 </ul>
-                <a href="#"
+                <a href="/invoice/new"
                     class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900">Get
                     started</a>
             </div>
@@ -202,7 +207,7 @@ export default function Pricing() {
                         <span className='text-sm'>Free updates: <span class="font-semibold">1 week</span></span>
                     </li>
                 </ul>
-                <a href="#"
+                <a href="/invoice/new"
                     class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900">Get
                     started</a>
             </div>

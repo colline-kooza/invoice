@@ -7,7 +7,6 @@ import React from 'react';
 
 export default async function page() {
     const invoices = await getInvoices();
-    console.log(invoices)
     const session = await getServerSession(authOptions);
     const userId = await session?.user.id;
     const userInvoices = invoices.filter((invoice) => invoice.userId === userId);
