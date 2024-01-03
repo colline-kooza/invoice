@@ -1,6 +1,6 @@
 "use client"
 import { UploadDropzone } from '@uploadthing/react';
-import React, { useState , useRef, useEffect } from 'react'
+import React, { useState , useRef,  } from 'react'
 import {  IoCreate } from "react-icons/io5";
 import { GrPrint } from "react-icons/gr";
 import { useReactToPrint } from 'react-to-print';
@@ -12,10 +12,11 @@ import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 
 export default function Page() {
+
   const baseUrl=process.env.NEXT_PUBLIC_LOCALHOST;
   const router=useRouter()
   const { data: session, status} = useSession()
@@ -27,6 +28,7 @@ export default function Page() {
     const [Id , setId]=useState("")
     const [preview , setPreview]=useState(false)
     const [tableData , setTableData]=useState([])
+    
     const [formData , setFormData]=useState({
         companyName:"",
         AuthorName:"",
@@ -92,9 +94,7 @@ export default function Page() {
       router.push('/login');
       return;
     }
-    useEffect(() => {
-      AOS.init();
-    }, [])
+   
   return (
    <>
    {
@@ -111,7 +111,7 @@ export default function Page() {
     </div>
   ) : status === "authenticated" && (
     <>
-      <div  data-aos="fade-right" data-aos-duration="800" className='lg:p-10 md:p-10 bg-slate-100'>
+      <div className='lg:p-10 md:p-10 bg-slate-100'>
       <div className='lg:p-10 md:p-10 p-2'>
     <div className='flex gap-2 md:justify-between lg:justify-between'>
     <div className='flex gap-1 lg:gap-2'>
