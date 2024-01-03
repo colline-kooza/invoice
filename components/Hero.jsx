@@ -15,7 +15,7 @@ export default function Hero() {
           <div class="pr-2 md:mb-14 py-4 md:py-0">
             <h1 class=" text-4xl font-semibold text-blue-900 xl:text-5xl lg:text-2xl"><span class="block w-full">Free Invoice Generator</span> for your business!</h1>
             <p class="py-4 text-lg text-gray-500 2xl:py-8 md:py-6 2xl:pr-5">
-            Empowering you to make better financial decisions, Create , manage ,Recurring Invoices download as PDF , Email and print Invoices 
+            Empowering you to make better financial decisions, Create , manage , download as PDF , Email and print Invoices 
             </p>
             <div class="mt-4 ">
               <Link href="/invoice/new" class="inline-flex flex gap-2 font-semibold items-center px-5 py-3 text-sm text-white bg-blue-500 rounded-lg md:px-8 hover:bg-blue-600">Create Invoice <FaArrowDown/></Link>
