@@ -5,8 +5,8 @@ import { FaArrowRightToCity } from "react-icons/fa6";
 import { BiWorld } from "react-icons/bi";
 
 
-export default function Previewdata({data}) {
-    // console.log(data)
+export default function PreviewDetailedData({data}) {
+    console.log(data)
     const totalAmount=data?.tableData?.reduce((sum, row)=> {
         const total=parseFloat(row.Amount)
         if(!isNaN (total)){
@@ -26,12 +26,12 @@ export default function Previewdata({data}) {
   <>
   {
     data?(
-      <div className='mx-1 px-3 mt-8 lg:px-[8rem] py-8 flex flex-col gap-2 tracking-[.4px] bg-slate-200 shadow-lg shadow-indigo-500/40  rounded-lg'>
+      <div className='mx-4 px-2 mt-8 lg:px-[8rem] py-8 flex flex-col gap-2 tracking-[.4px] bg-slate-200 shadow-lg shadow-indigo-500/40  rounded-lg'>
         {/* details */}
         <div className='flex w-full min-h-[50vh] '>
         <div className='min-w-[49%] lg:min-w-[35%] items-start justify-start'>
             <div className='lg:w-[40%] w-[90%] h-[30%] flex items-start justify-start'>
-            <Image className='w-[100%] h-[100%] object-contain' src={data?.image} alt="" width={100} height={100}/>
+            <Image className='w-[100%] h-[100%] object-contain' src={data?.imageUrl} alt="" width={100} height={100}/>
             </div>
             <div className='mt-5'>
                 <div className='flex flex-col justify-center gap-1 lg:gap-3'>
@@ -72,7 +72,8 @@ export default function Previewdata({data}) {
                 <div>
                     <h1 className='lg:text-6xl md:text-6xl font-bold text-4xl tracking-[6px] text-[#525252] md:justify-start md:items-start lg:justify-start lg:items-start flex items-center justify-center'>Invoice</h1>
                     <div className='line flex gap-2 lg:text-sm text-xs md:items-start md:justify-start lg:items-start lg:justify-start items-center justify-center lg:tracking-[6px]'>
-                    <p className='overflow-hidden max-h-[20px] leading-5'>{`NO: ${data.invoiceNumber}`}</p>
+                        <p className='flex items-center justify-center'>NO:{data.invoiceNumber}</p>
+                    {/* <p className='overflow-hidden max-h-[20px] leading-5'>{`NO: ${data.invoiceNumber}`}</p> */}
     <span className='hidden w-px h-6 bg-red-300 md:block'></span>
     <p className='overflow-hidden max-h-[20px] leading-5 text-gray-500'>{data.invoiceDate}</p>
                     </div>
@@ -158,17 +159,12 @@ export default function Previewdata({data}) {
             })
          }
         </tbody>
-        {/* <tfoot>
-            <tr class="font-semibold text-gray-900 ">
-                <th scope="row" class="px-6 py-3 text-base">Total</th>
-                <td class="px-6 py-3">${totalAmount.toFixed(2)}</td> 
-            </tr>
-        </tfoot> */}
+     
     </table>
      </div>
      <hr />
         {/* terms & condition */}
-        <div className='flex lg:flex-row flex-col gap-3 w-full min-h-11 mt-5'>
+    <div className='flex lg:flex-row flex-col gap-3 w-full min-h-11 mt-5'>
     <div className='lg:w-[50%] flex gap-3 flex-col'>
        <div className='flex flex-col gap-1'>
        <h2 className='lg:text-lg text-sm font-bold lg:tracking-[.9px] text-[#525252]'>TERMS & CONDITIONS</h2>

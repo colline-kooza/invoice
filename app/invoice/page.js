@@ -9,7 +9,7 @@ export default async function page() {
   const session = await getServerSession(authOptions);
   const userId = await session?.user.id;
   const userInvoices = invoices.filter((invoice) => invoice.userId === userId);
-
+  console.log(invoices)
   return (
     <>
       {session ? (
