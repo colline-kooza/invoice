@@ -1,6 +1,6 @@
 "use client"
 import { UploadDropzone } from '@uploadthing/react';
-import React, { useState , useRef,  } from 'react'
+import React, { useState , useRef, useEffect,  } from 'react'
 import {  IoCreate } from "react-icons/io5";
 import { GrPrint } from "react-icons/gr";
 import { useReactToPrint } from 'react-to-print';
@@ -12,11 +12,13 @@ import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Page() {
-
+  useEffect(() => {
+    AOS.init();
+  }, [])
   const baseUrl=process.env.NEXT_PUBLIC_LOCALHOST;
   const router=useRouter()
   const { data: session, status} = useSession()
@@ -163,7 +165,7 @@ Print
         ):(
         <>
         {/* form */}
- <form onSubmit={handleSubmit} className='lg:px-9 md:px-4 py-6 px-1 lg:py-10 flex flex-col gap-[2rem] shadow-xl  mt-[3rem] rounded-md lg:mx-[4rem]'>
+ <form data-aos="fade-right" data-aos-duration="800" onSubmit={handleSubmit} className='lg:px-9 md:px-4 py-6 px-1 lg:py-10 flex flex-col gap-[2rem] shadow-xl  mt-[3rem] rounded-md lg:mx-[4rem]'>
 {/* image */}
 <div className='flex w-full justify-center lg:justify-between items-center'>
 <div className='flex flex-col md:flex-row lg:flex-row gap-2 items-center'>
