@@ -44,7 +44,7 @@ export default function DeatiledBtn({url}) {
         <div className='flex gap-2'>
             {
                 sendEmail?(
-                    <form class="flex items-center gap-2">
+                    <form class="flex items-center lg:flex-row flex-col gap-2">
                     <div class="relative w-full">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                         <AiOutlineMail />
@@ -77,9 +77,9 @@ export default function DeatiledBtn({url}) {
         </div>
         <div>
         <Link href="/invoice"
-    className="flex text-sm items-center gap-2 px-4 py-2 text-white bg-indigo-600 rounded-lg duration-150  hover:border hover:border-sky-500 hover:text-black hover:bg-white active:bg-indigo-700">
+    className="ml-6 flex text-sm items-center gap-2 px-4 py-2 text-white bg-indigo-600 rounded-lg duration-150  hover:border hover:border-sky-500 hover:text-black hover:bg-white active:bg-indigo-700">
    <MdOutlinePreview size={20}/>
-    View All Invoices
+    Invoices
     </Link>
         </div>
     </div>
