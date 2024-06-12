@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 export default function Page() {
   useEffect(() => {
     AOS.init();
@@ -159,7 +160,7 @@ Print
      {/* Preview */}
      <div ref={invoiceRef}
      >
-<PreviewData data={data}/>
+   <PreviewData data={data}/>
      </div>
     </>
         ):(

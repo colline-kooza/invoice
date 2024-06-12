@@ -4,206 +4,125 @@ import { FaAddressBook } from 'react-icons/fa'
 import { FaArrowRightToCity } from "react-icons/fa6";
 import { BiWorld } from "react-icons/bi";
 
+export default function PreviewDetailedData({ data }) {
+    const totalAmount = data?.tableData?.reduce((sum, row) => {
+        const total = parseFloat(row.Amount)
+        return !isNaN(total) ? sum + total : sum
+    }, 0)
 
-export default function PreviewDetailedData({data}) {
-    console.log(data)
-    const totalAmount=data?.tableData?.reduce((sum, row)=> {
-        const total=parseFloat(row.Amount)
-        if(!isNaN (total)){
-            return sum + total
-        }
-        return sum 
-    },0)
-    const options={
-        year:"numeric", month:"long" , day: "numeric"
-    }
-    const newInvoiceDate= new Date(data?.invoiceDate).toLocaleDateString(undefined , options)
-    const options2={
-        year:"numeric", month:"long" , day: "numeric"
-    }
-    const newInvoiceDue= new Date(data?.dueDate).toLocaleDateString(undefined ,options2)
-  return (
-  <>
-  {
-    data?(
-      <div className='mx-4 px-2 mt-8 lg:px-[8rem] py-8 flex flex-col gap-2 tracking-[.4px] bg-slate-200 shadow-lg shadow-indigo-500/40  rounded-lg'>
-        {/* details */}
-        <div className='flex w-full min-h-[50vh] '>
-        <div className='min-w-[49%] lg:min-w-[35%] items-start justify-start'>
-            <div className='lg:w-[40%] w-[90%] h-[30%] flex items-start justify-start'>
-            <Image className='w-[100%] h-[100%] object-contain' src={data?.imageUrl} alt="" width={100} height={100}/>
-            </div>
-            <div className='mt-5'>
-                <div className='flex flex-col justify-center gap-1 lg:gap-3'>
-                    <h2 className='lg:text-sm text-xs font-semibold text-[#b4a0a0]'>TO :</h2>
-                    <h1 className='lg:text-[1.3rem] tracking-[.4px] text-xs font-bold text-[#525252] flex-wrap'>{data.clientCompany}</h1>
-                </div>
-            </div>
-            <div className='mt-3'>
-                <div className='flex flex-col gap-3'>
-                    <h2 className='lg:text-sm text-xs font-semibold text-[#ad8484]'>Client Address : </h2>
-                    <p className='lg:text-[1rem] tracking-[.4px] text-xs font-bold text-[#715e5e] flex gap-1 items-center flex-wrap'><FaArrowRightToCity className='shrink-0'/> {data.clientAddress}</p>
-                </div>
-            </div>
-            <div className='mt-3'>
-                <div className='flex flex-col gap-3'>
-                    <h2 className='lg:text-sm text-xs font-semibold text-[#ad8484]'>Client City : </h2>
-                    <p className='lg:text-[1rem] tracking-[.4px] text-xs font-bold text-[#715e5e] flex gap-1 items-center flex-wrap'><FaAddressBook className='shrink-0'/> {data.clientCity}</p>
-                </div>
-            </div>
-            <div className='mt-3'>
-                <div className='flex flex-col gap-3'>
-                    <h2 className='lg:text-sm text-xs font-semibold text-[#ad8484]'>Client country: </h2>
-                    <p className='lg:text-[1rem] tracking-[.4px] flex-wrap text-xs font-bold text-[#715e5e] flex gap-1 items-center'> <BiWorld className='shrink-0'/> {data.clientCountry}</p>
-                </div>
-            </div>
-        </div>
-        <div className='lg:min-w-[35%] hidden lg:flex'>
-            <div className='flex flex-col gap-2 justify-end '>
-            <h2 className='text-sm font-semibold text-[#ad8484] tracking-[.4px]'>FROM : </h2>
-<h1 className='lg:text-2xl text-lg font-bold'>{data.companyName}</h1> 
-<div className='lg:text-sm text-xs font-semibold text-[#ad8484]'>
-{data.AuthorName}
-</div> 
-            </div>
-        </div>
-        <div className='lg:min-w-[25%] min-w-[50%] flex flex-col  p-2 md:p-2 lg:p-2 '>
-            <div className='flex flex-col gap-1'>
-                <div>
-                    <h1 className='lg:text-6xl md:text-6xl font-bold text-4xl tracking-[6px] text-[#525252] md:justify-start md:items-start lg:justify-start lg:items-start flex items-center justify-center'>Invoice</h1>
-                    <div className='line flex gap-2 lg:text-sm text-xs md:items-start md:justify-start lg:items-start lg:justify-start items-center justify-center lg:tracking-[6px]'>
-                        <p className='flex items-center justify-center'>NO:{data.invoiceNumber}</p>
-                    {/* <p className='overflow-hidden max-h-[20px] leading-5'>{`NO: ${data.invoiceNumber}`}</p> */}
-    <span className='hidden w-px h-6 bg-red-300 md:block'></span>
-    <p className='overflow-hidden max-h-[20px] leading-5 text-gray-500'>{data.invoiceDate}</p>
+    const options = { year: "numeric", month: "long", day: "numeric" }
+    const newInvoiceDate = new Date(data?.invoiceDate).toLocaleDateString(undefined, options)
+    const newInvoiceDue = new Date(data?.dueDate).toLocaleDateString(undefined, options)
+
+    return (
+        <>
+            {data ? (
+                <div className="mx-4 px-4 mt-8 lg:px-24 py-8 flex flex-col gap-8 tracking-[.4px] bg-white shadow-lg rounded-lg">
+                    {/* Details */}
+                    <div className="flex flex-row lg:flex-row w-full min-h-[50vh] lg:space-x-6">
+                        <div className="flex-1 flex flex-col space-y-6">
+                            <div className="w-28 h-28 mx-auto lg:mx-0">
+                                <Image className="w-full h-full object-contain" src={data?.imageUrl} alt="" width={100} height={100} />
+                            </div>
+                            <div className=" lg:text-left">
+                                <h2 className="text-sm font-semibold text-gray-600">TO:</h2>
+                                <h1 className="text-lg font-bold text-gray-800">{data.clientCompany}</h1>
+                            </div>
+                            <div className="text-left">
+                                <h2 className="text-sm font-semibold text-gray-600">Client Address:</h2>
+                                <p className="text-sm font-bold text-gray-700 flex items-center justify-center lg:justify-start"><FaArrowRightToCity className="mr-2" /> {data.clientAddress}</p>
+                            </div>
+                            <div className="text-left">
+                                <h2 className="text-sm font-semibold text-gray-600">Client City:</h2>
+                                <p className="text-sm font-bold text-gray-700 flex items-center justify-center lg:justify-start"><FaAddressBook className="mr-2" /> {data.clientCity}</p>
+                            </div>
+                            <div className="text-left">
+                                <h2 className="text-sm font-semibold text-gray-600">Client Country:</h2>
+                                <p className="text-sm font-bold text-gray-700 flex items-center justify-center lg:justify-start"><BiWorld className="mr-2" /> {data.clientCountry}</p>
+                            </div>
+                        </div>
+                        <div className="hidden lg:flex flex-1 flex-col space-y-2 items-end">
+                            <h2 className="text-sm font-semibold text-gray-600">FROM:</h2>
+                            <h1 className="text-2xl font-bold text-gray-800">{data.companyName}</h1>
+                            <div className="text-sm font-semibold text-gray-600">{data.AuthorName}</div>
+                        </div>
+                        <div className="flex-1 flex flex-col items-center lg:items-end space-y-5">
+                            <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 ">Invoice</h1>
+                            <div className="flex flex-col lg:flex-row lg:space-x-2 text-sm text-gray-600">
+                                <p className="lg:mb-0 mb-2">NO: {data.invoiceNumber}</p>
+                                <span className="hidden lg:inline-block w-px h-6 bg-gray-300"></span>
+                                <p>{newInvoiceDate}</p>
+                            </div>
+                            <div className="lg:hidden flex flex-col space-y-2 ">
+                                <h2 className="text-xs font-semibold text-gray-600 text-end">FROM:</h2>
+                                <h1 className="text-xs font-bold text-gray-800 text-end">{data.companyName}</h1>
+                                <div className="text-xs font-semibold text-gray-600 text-end">{data.AuthorName}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Table */}
+                    <div className="relative overflow-x-auto mt-4">
+                        <table className="w-full text-sm text-left text-gray-500">
+                            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                                <tr>
+                                    <th scope="col" className="px-6 py-3">Item Description</th>
+                                    <th scope="col" className="px-6 py-3">Item Qty</th>
+                                    <th scope="col" className="px-6 py-3">Price</th>
+                                    <th scope="col" className="px-6 py-3">Tax</th>
+                                    <th scope="col" className="px-6 py-3">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data?.tableData.map((row) => (
+                                    <tr key={row.id} className="bg-white border-b hover:bg-gray-50">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900">{row.itemDescription}</th>
+                                        <td className="px-6 py-4">{row.itemQty}</td>
+                                        <td className="px-6 py-4">{row.Price}</td>
+                                        <td className="px-6 py-4">{row.Tax}</td>
+                                        <td className="px-6 py-4">${row.Amount}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr />
+                    {/* Terms & Conditions */}
+                    <div className="flex flex-col lg:flex-row justify-between mt-5 space-y-4 lg:space-y-0">
+                        <div className="lg:w-1/2 space-y-2">
+                            <h2 className="text-lg font-bold text-gray-800">TERMS & CONDITIONS</h2>
+                            <p className="text-sm text-gray-500">{data.notes}</p>
+                            <div className="space-y-1">
+                                <p className="text-sm font-semibold text-gray-800">DUE DATE:</p>
+                                <p className="text-sm text-gray-500">{newInvoiceDue}</p>
+                            </div>
+                        </div>
+                        <div className="lg:w-1/2 space-y-2">
+                            <div className="flex justify-end space-x-4">
+                                <h2 className="text-sm font-semibold text-gray-800">SubTotal:</h2>
+                                <p className="text-sm font-bold text-gray-800">${totalAmount.toFixed(2)}</p>
+                            </div>
+                            <div className="flex justify-end space-x-4">
+                                <h2 className="text-sm font-semibold text-gray-800">Discount:</h2>
+                                <p className="text-sm font-bold text-gray-800">$0.00</p>
+                            </div>
+                            <div className="flex justify-end space-x-4 bg-gray-100 p-4 rounded">
+                                <h2 className="text-lg font-bold text-gray-800">Total:</h2>
+                                <h2 className="text-lg font-bold text-gray-800">${totalAmount.toFixed(2)}</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className=''>
-                <div className='mt-5 '>
-                <div className='flex lg:hidden md:hidden flex-col justify-center gap-3 lg:gap-2'>
-                    <h2 className='lg:text-sm text-xs font-semibold text-[#b4a0a0]'>FROM :</h2>
-                    <h1 className='lg:text-[1.3rem] tracking-[.4px] text-xs font-bold text-[#525252] flex-wrap'>{data.companyName}</h1>
-                    <div className='lg:text-sm text-xs font-semibold text-[#ad8484]'>
-                 {data.AuthorName}
-                  </div> 
+            ) : (
+                <div className="text-center p-8 flex flex-col items-center justify-center gap-2">
+                    <p className="text-lg text-red-600">Failed to fetch invoices. Please create some.</p>
+                    <button
+                        className="block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+                        onClick={() => window.location.reload()}
+                    >
+                        Create New
+                    </button>
                 </div>
-            </div>
-            <div className='mt-3'>
-                <div className='flex flex-col gap-3'>
-                    <h2 className='lg:text-sm text-xs font-semibold text-[#ad8484]'>Address : </h2>
-                    <p className='lg:text-[1rem] tracking-[.4px] text-xs font-bold text-[#715e5e] flex gap-1 items-center flex-wrap'><FaArrowRightToCity className='shrink-0'/> {data.companyAddress}</p>
-                </div>
-            </div>
-            <div className='mt-3'>
-                <div className='flex flex-col gap-3'>
-                    <h2 className='lg:text-sm text-xs font-semibold text-[#ad8484]'>Country : </h2>
-                    <p className='lg:text-[1rem] tracking-[.4px] text-xs font-bold text-[#715e5e] flex gap-1 items-center flex-wrap'><FaAddressBook className='shrink-0'/> {data.authorCountry}</p>
-                </div>
-            </div>
-            <div className='mt-3'>
-                <div className='flex flex-col gap-3'>
-                    <h2 className='lg:text-sm text-xs font-semibold text-[#ad8484]'>City: </h2>
-                    <p className='lg:text-[1rem] tracking-[.4px] flex-wrap text-xs font-bold text-[#715e5e] flex gap-1 items-center'> <BiWorld className='shrink-0'/> {data.clientCountry}</p>
-                </div>
-            </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        {/* table */}
-    <div class="relative overflow-x-auto mt-[.4rem] md:mt-[1px] lg:mt-[1rem]">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-black dark:text-gray-100">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                Item Description
-                </th>
-                <th scope="col" class="px-6 py-3">
-                ItemQty
-                </th>
-                <th scope="col" class="px-6 py-3">
-                Price
-                </th>
-                <th scope="col" class="px-6 py-3">
-                Tax
-                </th>
-                <th scope="col" class="px-6 py-3">
-                Amount
-                </th>
-            </tr>
-        </thead>
-        <tbody className=''>
-         {
-            data?.tableData.map((row )=>{
-                return(
-                    <tr key={row.id} className='text-gray-900'>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {row.itemDescription}
-                    </th>
-                    <td class="px-6 py-4">
-                    {row.itemQty}
-                    </td>
-                    <td class="px-6 py-4">
-                    {row.Price}
-                    </td>
-                    <td class="px-6 py-4">
-                       
-                    {row.Tax}
-                    </td>
-                    <td class="px-6 py-4">
-                    $ {row.Amount}
-                    </td>
-                   
-                </tr>
-                )
-            })
-         }
-        </tbody>
-     
-    </table>
-     </div>
-     <hr />
-        {/* terms & condition */}
-    <div className='flex lg:flex-row flex-col gap-3 w-full min-h-11 mt-5'>
-    <div className='lg:w-[50%] flex gap-3 flex-col'>
-       <div className='flex flex-col gap-1'>
-       <h2 className='lg:text-lg text-sm font-bold lg:tracking-[.9px] text-[#525252]'>TERMS & CONDITIONS</h2>
-        <p className='text-sm lg:text-xs text-gray-500'>{data.notes}</p>
-       </div>
-       <div className='flex flex-col gap-2'>
-        <p className='tracking-[.4px] font-semibold text-[#525252]'>DUE DATE :</p>
-        <p className='tracking-[.4px] text-xs text-gray-500'>{data.dueDate}</p>
-       </div>
-    </div>
-    <div className='lg:w-[50%] flex flex-col gap-3'>
-     <div className='flex lg:gap-2 items-center justify-end'>
-    <h2 className='lg:text-sm text-sm font-semibold lg:tracking-[.9px] text-[#525252]'>SubTotal :</h2>
-    <p className='lg:text-sm text-sm font-bold lg:tracking-[.9px] '>${totalAmount.toFixed(2)}</p>
-     </div>
-     <div className='flex lg:gap-2 items-center justify-end'>
-    <h2 className='lg:text-sm text-sm font-semibold lg:tracking-[.9px] text-[#525252]'>Discount :</h2>
-     </div>
-     <div className='flex items-center mt-4 justify-end'>
-        <h2 className='py-2 tracking-[.4px] px-10 bg-[#ececec] font-semibold'>Total:</h2>
-        <h2 className='py-2 px-8 bg-[#666666] text-white font-semibold tracking-[.4px] '>${totalAmount.toFixed(2)}</h2>
-    </div>
-    </div>
-   
-        </div>
-      </div>
-    ):(
-        <div className="text-center p-8 flex flex-col items-center justify-center gap-2">
-        <p className="text-lg text-red-600">Failed to fetch invoices. Please making some.</p>
-        <button
-  className="block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
-  onClick={() => window.location.reload()}
->
-  Create New
-</button>
-        </div>
+            )}
+        </>
     )
-  }
-  </>
-  )
 }
- 
